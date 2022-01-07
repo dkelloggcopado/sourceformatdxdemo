@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <interviewLabel>Automatically select subset of metadata types on git snapshots {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Automatically select subset of metadata types on git snapshots</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_metadata_type_selection</name>
+        <label>Update metadata type selection</label>
+        <locationX>177</locationX>
+        <locationY>363</locationY>
+        <inputAssignments>
+            <field>copado__Metadata_Types__c</field>
+            <value>
+                <elementReference>MetadataTypeSelection</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Update_metadata_type_selection</targetReference>
+        </connector>
+        <object>copado__Git_Backup__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>MetadataTypeSelection</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>ActionLinkGroupTemplate,AnalyticSnapshot,ApexClass,ApexComponent,ApexPage,ApexTestSuite,ApexTrigger,AppMenu,AuraDefinitionBundle,BusinessProcess,CaseSubjectParticle,CompactLayout,CspTrustedSite,CustomApplication,CustomFeedFilter,CustomField,CustomLabel,CustomLabels,CustomMetadata,CustomNotificationType,CustomObject,CustomPageWebLink,CustomPermission,CustomSite,CustomTab,Dashboard,DuplicateRule,EmaiTemplate,EmbeddedServiceBranding,EmbeddedServiceConfig,EmbeddedServiceFlowConfig,EmbeddedServiceMenuSettings,EntityImplements,ExternalDataSource,ExternalServiceRegistration,FieldSet,FlexiPage,Flow,FlowCategory,GlobalValueSet,Group,Layout,LightningBolt,LightningComponentBundle,LightningExperienceBundle,LightningExperienceTheme,LightningMessageChannel,LightningOnboardingConfig,MatchingRule,MatchingRules,PermissionSet,PermissionSetGroup,RecordType,SharingCriteriaRule,SharingOwnerRule,SharingReason,SharingRules,StandardValueSet,StandardValueSetTranslation,ValidationRule,Workflow,WorkflowAlert,WorkflowFieldUpdate,WorkflowFlowAction,WorkflowRule,WorkflowSend,WorkflowTask</stringValue>
+        </value>
+    </variables>
+</Flow>
